@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MagicRemover - Image Background Remover</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://kokodocs.netlify.app/f/ico.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="https://kokodocs.netlify.app/f/ico.jpg" type="image/x-icon">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5653513682137738" crossorigin="anonymous"></script>
+
+    <!-- SEO Meta -->
+    <meta name="description" content="MagicRemover adalah alat AI gratis untuk menghapus latar belakang gambar secara otomatis. Cocok untuk foto produk, profil, dan lainnya.">
+    <meta name="keywords" content="hapus background, remove bg, AI background remover, MagicRemover, foto tanpa latar, penghapus latar, Rizko Imsar, tool AI, remove background Indonesia">
+    <meta name="author" content="Rizko Imsar">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://magicremover.onrender.com">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="MagicRemover - Image Background Remover">
+    <meta property="og:description" content="Hapus background gambar secara otomatis dan gratis dengan MagicRemover. Cocok untuk foto produk, profil, dan lainnya.">
+    <meta property="og:image" content="https://kokodocs.netlify.app/f/logo-magic.png">
+    <meta property="og:url" content="https://magicremover.onrender.com">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MagicRemover - Image Background Remover">
+    <meta name="twitter:description" content="Hapus background gambar hanya dalam satu klik. Gratis, cepat, dan mudah.">
+    <meta name="twitter:image" content="https://kokodocs.netlify.app/f/logo-magic.png">
+    <meta name="twitter:site" content="@RizkoImsar">
+
+    <!-- Tambahan SEO -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#5f30b5">
+    <meta name="copyright" content="Rizko Imsar">
+    <meta name="rating" content="general">
+    <meta name="distribution" content="global">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "MagicRemover",
+    "url": "https://magicremover.onrender.com",
+    "applicationCategory": "PhotoEditor",
+    "description": "MagicRemover adalah aplikasi AI berbasis web untuk menghapus background gambar secara otomatis dan gratis.",
+    "publisher": {
+        "@type": "Person",
+        "name": "Rizko Imsar"
+    }
+    }
+    </script>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    
+
+    <style>
+        html, body {
+        height: 100%;
+        }
+
+        main {
+        flex: 1 0 auto;
+        }
+        
+        body {
+            background: linear-gradient(135deg,rgba(95, 48, 181, 0.84),rgba(97, 88, 175, 0.87)); /* Gradien biru yang lebih gelap */
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar {
+            backdrop-filter: blur(15px);
+            background-color: rgba(115, 84, 187, 0.55);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar-brand strong {
+            color: #ffffff;
+        }
+
+        .navbar-nav .nav-link {
+            color: #ffffff !important;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #d4f1f4 !important;
+        }
+
+        .hero-section {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            color: #ffffff;
+        }
+
+        .card-header {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px 10px 0 0;
+        }
+
+        .btn-primary {
+            background-color: rgba(115, 84, 187, 0.55);
+            border-color:rgb(57, 29, 87) !important;
+        }
+
+        .btn-primary:hover {
+            background-color: rgba(48, 16, 125, 0.55);
+            border-color: #457b9d !important;
+        }
+
+        .btn-outline-secondary {
+            color: #ffffff !important;
+            border-color: #ffffff !important;
+        }
+
+        .btn-outline-secondary:hover {
+            background-color: #ffffff !important;
+            color: #1d3557 !important;
+        }
+
+        .badge-success {
+            background-color: #8ac926 !important;
+        }
+
+        footer {
+            background-color: rgba(115, 84, 187, 0.55);
+            backdrop-filter: blur(10px);
+            color: #ffffff;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+
+        .bg-dark {
+            background-color: rgba(30, 50, 75, 0.8) !important; /* Bagian bawah biru gelap transparan */
+            backdrop-filter: blur(10px);
+        }
+
+        h1, h2, h3, h4, h5, h6, p, a, strong, label, .nav-link {
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-control {
+            background-color: rgba(255, 255, 255, 0.1) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            color: #ffffff !important;
+        }
+
+        .form-control::placeholder {
+            color: #e0fbfc !important;
+        }
+        main {
+            flex-grow: 1; /* Allow main to grow and push footer down */
+        }
+        .footer-top {
+            background-color: #343a40; /* Warna latar belakang footer atas */
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .footer-bottom {
+            background-color: #212529; /* Warna latar belakang footer bawah */
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-size: small;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top py-3">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="/">
+                <img src="https://kokodocs.netlify.app/f/logo-magic.png" style="width: 40px; height: auto;" class="me-2">
+                <strong>MagicRemover</strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" style="filter: invert(1) brightness(2);">
+                <span class="navbar-toggler-icon" ></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="https://kokodocs.netlify.app/API" target="_blank">API</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://kokodocs.netlify.app/" target="_blank">Docs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://github.com/rizko77" target="_blank">Github ➲</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="offcanvas offcanvas-start" id="mobileMenu" style="background-color: black;">
+        <div class="offcanvas-header">
+            <a class="navbar-brand d-flex align-items-center" href="/">
+                <img src="https://kokodocs.netlify.app/f/logo-magic.png" style="width: 40px; height: auto;" class="me-2">
+                <strong>MagicRemover</strong>
+            </a>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="https://kokodocs.netlify.app/API" target="_blank">API</a></li>
+                <li class="nav-item"><a class="nav-link" href="https://kokodocs.netlify.app/" target="_blank">Docs</a></li>
+                <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="https://github.com/rizko77" target="_blank">Github ➲</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <main class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="mb-0 text-center"><i class="bi bi-image me-2"></i> Upload dan Proses Gambar</h4>
+                    </div>
+                    <div class="card-body py-4">
+                        <form method="POST" enctype="multipart/form-data">
+                            <div class="mb-4">
+                                <label class="form-label" style="font-weight: 500;"><i class="bi bi-upload me-2"></i>Upload Gambar Anda</label>
+
+                                <!-- Drag & Drop Container -->
+                                <div id="drop-area"
+                                    class="rounded-4 p-4 text-center border border-1"
+                                    style="background: rgba(255, 255, 255, 0.07);
+                                        border-color: rgba(255,255,255,0.2);
+                                        backdrop-filter: blur(15px);
+                                        -webkit-backdrop-filter: blur(15px);
+                                        transition: 0.3s;
+                                        cursor: pointer;">
+                                    <i class="bi bi-cloud-arrow-up-fill fs-1 text-info"></i>
+                                    <p class="mt-2 mb-1" style="font-size: 1.2rem; font-weight: 400;">Seret & lepaskan gambar ke sini</p>
+                                    <p class="mb-3 text-light" style="font-size: 0.95rem;">atau klik untuk memilih dari perangkat Anda</p>
+
+                                    <!-- Hidden File Input -->
+                                    <input type="file"
+                                        class="form-control form-control-lg d-none"
+                                        name="image"
+                                        id="image"
+                                        accept="image/*"
+                                        required
+                                        onchange="handleFile(this.files)" />
+
+                                    <!-- Preview Nama File -->
+                                    <div id="file-preview"
+                                        class="mt-3 py-2 px-3 rounded-3"
+                                        style="background: rgba(255,255,255,0.1);
+                                            color: #fff;
+                                            font-weight: 400;
+                                            font-size: 0.95rem;
+                                            display: none;">
+                                        <i class="bi bi-file-earmark-image me-2 text-success"></i>
+                                        <span id="file-name">Nama file</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-text text-white mt-3">Format yang didukung: JPG, JPEG. Maks. 5MB.</div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-lg w-100 mb-4">
+                                <i class="bi bi-magic me-2"></i> Hapus Sekarang!
+                            </button>
+                        </form>
+
+                        <!-- Script Drag & Drop + Preview -->
+                        <script>
+                            const dropArea = document.getElementById('drop-area');
+                            const inputFile = document.getElementById('image');
+                            const filePreview = document.getElementById('file-preview');
+                            const fileNameText = document.getElementById('file-name');
+
+                            dropArea.addEventListener('click', () => inputFile.click());
+
+                            dropArea.addEventListener('dragover', e => {
+                                e.preventDefault();
+                                dropArea.style.borderColor = '#0dcaf0';
+                                dropArea.style.background = 'rgba(13, 202, 240, 0.05)';
+                            });
+
+                            dropArea.addEventListener('dragleave', e => {
+                                e.preventDefault();
+                                dropArea.style.borderColor = 'rgba(255,255,255,0.2)';
+                                dropArea.style.background = 'rgba(255,255,255,0.07)';
+                            });
+
+                            dropArea.addEventListener('drop', e => {
+                                e.preventDefault();
+                                dropArea.style.borderColor = 'rgba(255,255,255,0.2)';
+                                dropArea.style.background = 'rgba(255,255,255,0.07)';
+                                if (e.dataTransfer.files.length > 0) {
+                                    inputFile.files = e.dataTransfer.files;
+                                    handleFile(e.dataTransfer.files);
+                                }
+                            });
+
+                            function handleFile(files) {
+                                if (files.length > 0) {
+                                    filePreview.style.display = 'block';
+                                    fileNameText.textContent = files[0].name;
+                                }
+                            }
+                        </script>
+
+
+                        {% if result and result_filename %}
+                        <hr class="my-4">
+                        <h5 class="mb-3 text-center"><i class="bi bi-eye me-2"></i> Hasil Preview</h5>
+                        <div class="text-center">
+                            <img src="{{ url_for('static', filename=result_filename) }}" alt="Hasil Gambar Tanpa Background" class="img-fluid rounded mb-2 d-block mx-auto" style="max-height: 400px; object-fit: contain;">
+                            
+                            <br>
+                            <span class="badge bg-success text-white rounded-pill mb-4"><i class="bi bi-check-circle me-1"></i> Background Berhasil Dihapus</span>
+                            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center mb-3">
+                                <a href="{{ url_for('download_normal') }}" class="btn btn-outline-secondary btn-lg"><i class="bi bi-download me-2"></i> Unduh Gambar</a>
+                                
+
+                                <form method="POST" action="{{ url_for('hapus_gambar') }}">
+                                    <button type="submit" class="btn btn-danger btn-lg"><i class="bi bi-trash me-2"></i> Hapus Gambar</button>
+                                </form>
+                            </div>
+                            
+                        </div>
+                    
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Iklan horizontal responsive -->
+    <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-5653513682137738"
+        data-ad-slot="1234567890"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+   <footer class="bg-purple text-white pt-5 pb-4">
+    <div class="container">
+        <div class="row text-center text-md-start">
+           <!-- Brand & Description -->
+            <div class="col-md-4 mb-4">
+            <div class="d-flex justify-content-center justify-content-md-start align-items-center mb-3">
+                <img src="https://kokodocs.netlify.app/f/logo-magic.png" alt="Logo" width="40" class="me-2">
+                <h1>MagicRemover</h1>
+            </div>
+            <p class="small px-2 px-md-0">
+                Platform penghapus background gambar Anda dalam satu klik.
+            </p>
+            <div class="mt-3 d-flex justify-content-center justify-content-md-start gap-3">
+                <a href="https://x.com/RizkoImsar" target="_blank" class="text-white" aria-label="Twitter">
+                <i class="fab fa-twitter fa-lg"></i>
+                </a>
+                <a href="https://www.facebook.com/rizko.imsar" target="_blank" class="text-white" aria-label="Facebook">
+                <i class="fab fa-facebook-f fa-lg"></i>
+                </a>
+                <a href="https://instagram.com/rizkoimsar_/" target="_blank" class="text-white" aria-label="Instagram">
+                <i class="fab fa-instagram fa-lg"></i>
+                </a>
+                <a href="https://github.com/rizko77/" target="_blank" class="text-white" aria-label="GitHub">
+                <i class="fab fa-github fa-lg"></i>
+                </a>
+            </div>
+            </div>
+
+            <!-- Resources Links -->
+            <div class="col-md-4 mb-4">
+                <h6 class="text-uppercase fw-bold mb-3">Resources</h6>
+                <ul class="list-unstyled small">
+                <li class="mb-1"><a href="/blog" class="text-white text-decoration-none">Blog</a></li>
+                <li class="mb-1"><a href="/panduan" class="text-white text-decoration-none">Panduan Penggunaan</a></li>
+                <li class="mb-1"><a href="/syarat" class="text-white text-decoration-none">Syarat &amp; Ketentuan</a></li>
+                <li class="mb-1"><a href="/privasi" class="text-white text-decoration-none">Kebijakan Privasi</a></li>
+                <li class="mb-1"><a href="/faq" class="text-white text-decoration-none">FAQ</a></li>
+                </ul>
+            </div>
+
+            <!-- Company Links -->
+            <div class="col-md-4 mb-4">
+                <h6 class="text-uppercase fw-bold mb-3">Company</h6>
+                <ul class="list-unstyled small">
+                <li class="mb-1"><a href="/about" class="text-white text-decoration-none">About Us</a></li>
+                <li class="mb-1"><a href="mailto:info@kokodocs.netlify.app" class="text-white text-decoration-none">Contact Us</a></li>
+                </ul>
+            </div>
+            </div>
+        </div>
+    </footer>
+
+    <hr class="border-dark">
+    <div class="bg-dark text-white text-center py-3">
+        <div class="container">
+            <p class="mb-1 mb-md-0">
+            &copy; 2024 <strong>MagicRemover</strong> -  All rights reserved. | Developed by 
+            <a href="https:github.com/rizko77" target="_blank" class="text-purple">Rizko Imsar</a>
+            </p>
+            <small class="d-block mt-1">MagicRemover hanya untuk keperluan edukasi dan eksperimen teknologi AI.</small>
+        </div>
+    </div>
+
+
+
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
