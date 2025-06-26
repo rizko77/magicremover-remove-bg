@@ -3,37 +3,37 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://magicremover.onrender.com/</loc>
+    <loc>https://magicremover.my.id/</loc>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://magicremover.onrender.com/about</loc>
+    <loc>https://magicremover.my.id/about</loc>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://magicremover.onrender.com/blog</loc>
+    <loc>https://magicremover.my.id/blog</loc>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://magicremover.onrender.com/panduan</loc>
+    <loc>https://magicremover.my.id/panduan</loc>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://magicremover.onrender.com/syarat</loc>
+    <loc>https://magicremover.my.id/syarat</loc>
     <priority>0.5</priority>
   </url>
 
   <url>
-    <loc>https://magicremover.onrender.com/privasi</loc>
+    <loc>https://magicremover.my.id/privasi</loc>
     <priority>0.5</priority>
   </url>
 
   <url>
-    <loc>https://magicremover.onrender.com/faq</loc>
+    <loc>https://magicremover.my.id/faq</loc>
     <priority>0.6</priority>
   </url>
 

@@ -182,6 +182,7 @@ def sitemap_xml():
 def robots_txt():
     return send_from_directory('.', 'robots.txt')
 
+
 if __name__ == '__main__':
     os.makedirs(UPLOAD_FOLDER, exist_ok=True)
     print("Server ready... http://localhost:5000")
